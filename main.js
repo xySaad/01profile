@@ -1,3 +1,4 @@
+import Intra from "./intra/index.js";
 import { hijackObjectURL } from "./lib/blob.js";
 import { hijackFetch } from "./lib/fetch.js";
 import onRouteChange from "./lib/router.js";
@@ -15,7 +16,11 @@ function main() {
     case "profile":
       return Profile();
     case "learn":
-      break;
+      if (url.pathname.startsWith("/intra")) {
+        return Intra();
+      }
+
+      return null;
     case "transport":
       break;
     default:

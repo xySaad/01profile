@@ -2,7 +2,7 @@ import html from "https://cdn.jsdelivr.net/npm/rbind/src/index.js";
 import waitForElement from "../lib/waitElement.js";
 import { Input } from "./components/Input.js";
 import { position, children, OujdaObject } from "./lib/states.js";
-import { searchKey } from "../lib/accessibility.js";
+import { navigate } from "../lib/router.js";
 
 const { div, link, a } = html;
 
@@ -15,16 +15,13 @@ const Search = () => {
     Input(),
     div({
       class: "result",
-      hidden: ($) => {
-        const pressed = $(searchKey);
-        return $(children).length === 0 || !pressed;
-      },
+      hidden: ($) => $(children).length === 0,
     }).add(
       children.map((child, idx) =>
-        a({
+        div({
           "data-focus": ($) => $(position) == idx(),
           class: "child",
-          href: "/intra" + child.path,
+          onclick: () => navigate("/intra" + child.path),
           textContent: child.path.substring("/oujda/".length),
         })
       )

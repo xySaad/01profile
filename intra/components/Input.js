@@ -1,6 +1,7 @@
 import html from "https://cdn.jsdelivr.net/npm/rbind/src/index.js";
 import { position, children, query } from "../lib/states.js";
 import { searchKey } from "../../lib/accessibility.js";
+import { navigate } from "../../lib/router.js";
 const { input } = html;
 
 export const Input = () => {
@@ -28,7 +29,8 @@ const onkeydown = ({ key }) => {
   }
 
   if (key === "Enter") {
-    location.href = "/intra" + children.value[position.value].path;
+    const path = "/intra" + children.value[position.value].path;
+    navigate(path);
   }
 
   if (position.value < 0) {

@@ -1,7 +1,7 @@
 import Intra from "./intra/index.js";
 import { hijackObjectURL } from "./lib/blob.js";
 import { hijackFetch } from "./lib/fetch.js";
-import onRouteChange from "./lib/router.js";
+import { onRouteChange } from "./lib/router.js";
 import Profile from "./profile/index.js";
 import { Router } from "https://cdn.jsdelivr.net/npm/rbind/src/index.js";
 Router.prototype.navigate = () => {};

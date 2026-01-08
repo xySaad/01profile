@@ -24,3 +24,8 @@ import("https://xysaad.github.io/01tweaks/main.js");
 ## Profile
 
 - add a search bar for online users with highlights
+
+## Intra
+
+- add a quick search bar
+- full screen markdown

@@ -25,9 +25,7 @@ export const Markdown = () => {
             .querySelectorAll("pre code")
             .forEach((block) => hljs.highlightElement(block));
         },
-      }),
-
-      div({ class: "closer", onclick: () => (hidden.value = true) })
+      })
     )
   );
 };

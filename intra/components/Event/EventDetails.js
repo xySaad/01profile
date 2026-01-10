@@ -22,13 +22,14 @@ const handleClick = (id) => {
 };
 
 const eventId = getParam("event");
-export const EventDetails = (data) => {
+export const EventDetails = (data, idx, parent) => {
   const isSuccess = data.progresses?.[0]?.grade === 1;
   const endTime = new Date(data.endAt);
   const now = new Date();
   const isOngoing = endTime > now;
   const startDate = formatDate(data.usersRelation[0].createdAt);
   const endDate = formatDate(data.endAt);
+  const delay = (0.3 / parent.length) * idx;
 
   let statusClass;
   if (isOngoing) {
@@ -41,6 +42,7 @@ export const EventDetails = (data) => {
     active: ($) => data.id == $(eventId),
     class: `event ${statusClass}`,
     "data-id": data.id,
+    style: `--delay: ${delay}s`,
     onclick: () => handleClick(data.id),
     ondblclick: () => navigate(`/intra${data.path}?event=${data.id}`),
   }).add(

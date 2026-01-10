@@ -1,3 +1,18 @@
+/*ai - Keyframes for pop-up animation */
+@keyframes popUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  50% {
+    transform: scale(1.05) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 /* Container for all cards */
 .events {
   min-width: 100%;
@@ -20,10 +35,13 @@
     flex-direction: column;
     gap: 8px;
     background-color: var(--bgLevel3);
-    transition: border-color 0.2s ease;
     border-left: 4px solid !important;
     border-color: var(--color) !important;
     transition: all 0.2s ease;
+
+    /*ai - Pop-up animation with dynamic staggered delay */
+    animation: popUp 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) backwards;
+    animation-delay: var(--delay);
   }
 
   .event:hover,
@@ -32,6 +50,7 @@
     transform: translateY(-2px);
     border: 1px solid;
     cursor: pointer;
+    animation-delay: 0s;
   }
 
   .event-success {
@@ -77,6 +96,11 @@
   display: flex;
   gap: 10px;
   padding: 0 10px;
+  position: sticky;
+  top: 10%;
+  padding: 10px;
+  z-index: 1;
+  align-items: center;
 
   input {
     opacity: 0;
@@ -88,6 +112,10 @@
   }
 }
 
+.chevron:hover input {
+  cursor: pointer;
+}
+
 .chevron::before {
   display: inline-block;
   border-style: solid;
@@ -97,6 +125,7 @@
   width: 0.75em;
   vertical-align: middle;
   transform: rotate(-45deg);
+  transition: all 0.3s;
 }
 
 .chevron::after {

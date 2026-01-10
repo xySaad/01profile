@@ -15,7 +15,7 @@ export default async function Intra() {
   !styles.isConnected && document.querySelector("head").append(styles);
 
   if (location.pathname.match(/\/intra\/.+\/profile\/?$/g)) {
-    await Profile();
+    Profile();
   }
 
   if (navbar.isConnected) return;

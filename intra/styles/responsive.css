@@ -239,3 +239,9 @@ html
   padding-left: 5vw;
   padding-right: 5vw;
 }
+
+/* navbar */
+nav[data-test="navBar"] {
+  width: 100vw;
+  flex-wrap: wrap;
+}

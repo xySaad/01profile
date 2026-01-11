@@ -15,6 +15,9 @@ body:has(.markdown-wrap:not([hidden])) {
 nav .navbar {
   display: flex;
   gap: 10px;
+  flex: 1;
+  max-width: fit-content;
+  padding: 10px;
 
   .markdown {
     margin: auto;
@@ -76,7 +79,6 @@ nav .navbar {
   }
 }
 .search {
-  margin-left: 4%;
   position: relative;
 
   input {
@@ -86,7 +88,8 @@ nav .navbar {
     background: #1a1a1a;
     color: #e0e0e0;
     font-size: 14px;
-    min-width: 200px;
+    width: 100%;
+    min-width: 100px;
     transition: all 0.2s ease;
     outline: none;
   }
@@ -110,7 +113,7 @@ nav .navbar {
     display: none;
     position: absolute;
     top: calc(100% + 8px);
-    left: 0;
+    right: 0;
     overflow-y: auto;
     max-height: 300px;
     height: fit-content;
